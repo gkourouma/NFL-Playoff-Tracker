@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= team.team %></title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="/teams/">Back to NFL Teams</a>
+            </li>
+            <li>
+                <a href="/">Back to Home Page</a>
+            </li>
+        </ul>
+    </nav>
+    <h1><%= team.team %></h1>
+    <% if (team.isPlayoffContender){ %>
+    <p>The <%= team.team %> made it to the playoffs this year!</p>
+    <% }else{ %>
+    <p>The <%= team.team %> did not make it to the playoffs this year.</p>
+    <% } %>
+</body>
+</html>
