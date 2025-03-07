@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFL Teams</title>
+  </head>
+  <body>
+    <h1>Enter Your Team Information</h1>
+    <form action="/teams" method="post">
+      <label for="team">Team:</label>
+      <input type="text" name="team" id="team" />
+
+      <label for="conference">What conference is your team in?</label>
+      <input type="text" name="conference" id="conference" />
+
+      <label for="division">What Division is your team in?</label>
+      <input type="text" name="division" id="division" />
+
+      <label for="isPlayoffContender">Check if your team made the 2025 Playoffs?</label>
+      <input type="checkbox" name="isPlayoffContender" />
+
+      <button type="submit">Add Team</button>
+    </form>
+  </body>
+</html>
