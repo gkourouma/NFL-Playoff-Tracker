@@ -35,8 +35,15 @@ app.post("/teams", async (req, res) => {
 
   await Nfl.create(req.body);
   console.log(req.body);
-  res.redirect("/teams/new");
+  res.redirect("/teams");
 });
+
+//Create index route -- this list all the teams
+app.get('/teams', async (req, res) => {
+    const allTeams = await Nfl.find()
+  res.render('teams/index.ejs', {teams: allTeams})
+})
+
 
 app.listen(3000, () => {
   console.log("Listen Port 3000");
