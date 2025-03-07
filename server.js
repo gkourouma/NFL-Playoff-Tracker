@@ -3,6 +3,8 @@ const dotenv = require("dotenv");
 const express = require("express");
 const mongoose = require("mongoose");
 const Nfl = require("./models/nfl.js");
+const methodOverride = require("method-override")
+const morgan = require("morgan")
 
 dotenv.config();
 const app = express();
@@ -14,6 +16,8 @@ mongoose.connection.on("connected", () => {
 
 //middleware
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"))
+app.use(morgan("dev"))
 
 //Build Route... This leads to Home Page
 app.get("/", async (req, res) => {
@@ -60,6 +64,12 @@ res.render('teams/show.ejs', {team:findTeam})
 })
 
 //Create DELETE route
+app.delete("/teams/:teamId", async (req,res) => {
+  await Nfl.findByIdAndDelete(req.params.teamId)
+  res.redirect("/teams")
+})
+
+
 
 
 app.listen(3000, () => {
