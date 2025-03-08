@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;700&display=swap');
+
+/* Home Page CSS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/images/thomas-park-fDmpxdV69eA-unsplash.jpg) ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Oswald', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 20px;
+}
+
+.text-container{
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: auto;
+    height: auto;
+}
+
+img{
+    width: 400px;
+    height: 500px;
+}
+
+
+h1{
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    color: #0053A0;
+    font-size: 50px;
+}
+
+p{
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+}
+nav ul {
+    padding-top: 20px;
+    list-style-type: none;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+}
+
+nav ul li{
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #c60c30;
+    font-size: 18px;
+    transition: font-size 0.3s ease;
+}
+
+a:hover{
+    color: #0053A0;
+    font-size: 20px;
+}
