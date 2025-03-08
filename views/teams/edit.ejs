@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NFL Teams</title>
+  </head>
+  <body>
+    <h1><%= team.team %></h1>
+    <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
+      <fieldset aria-labelledby="team-legend">
+        <legend id="team-legend">Update Your NFL Team Information</legend>
+        <div>
+          <label for="team">Team:</label>
+          <input type="text" name="team" value="<%= team.team %>" />
+        </div>
+
+        <div>
+          <label for="conference">What conference is your team in?</label>
+          <input type="text" name="conference" value="<%= team.conference %>" />
+        </div>
+
+        <div>
+          <label for="division">What Division is your team in?</label>
+          <input type="text" name="division" value="<%= team.division %>" />
+        </div>
+
+        <div>
+          <label for="isPlayoffContender"> Check if your team made the 2025 Playoffs?</label>
+          <input
+            type="checkbox"
+            name="isPlayoffContender"
+            <%
+            if(team.isPlayoffContender){
+            %>
+          checked 
+          <% } %> />
+        </div>
+      </fieldset>
+      <div>
+        <button type="submit">Update Team</button>
+      </div>
+    </form>
+    <a href="/teams/">Back to NFL Teams</a>
+    <a href="/">Back to Home Page</a>
+  </body>
+</html>
