@@ -1,18 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/index.css" />
     <title>Team Index</title>
-</head>
-<body>
-    <h1>All Teams</h1>
-    <a href="/teams/new">Add New Team</a>
-    <a href="/">Back to Home Page</a>
-    <ul>
-        <% teams.forEach(team => { %>
-            <li><%= team.team %></li>
-       <% }) %>
-    </ul>
-</body>
+  </head>
+
+  <body>
+    <h1>NFL Teams</h1>
+    <nav>
+      <ul>
+        <li><a href="/teams/new">Add New Team</a></li>
+        <li><a href="/">Back to Home Page</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <div class="afc">
+        <img src="/images/afc.png" alt="AFC Logo" />
+        <h2 class="afc-title">AFC Teams</h2>
+
+        <ul>
+          <% categorizedTeams.AFC.forEach(team => { %>
+          <li>
+            <a class="red-link" href="/teams/<%= team._id %>">
+              <strong><%= team.team %></strong></a
+            >
+            - <i><%= team.division %> Division</i>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+
+      <div class="nfc">
+        <img src="/images/nfc.png" alt="NGC Logo" />
+        <h2 class="nfc-title">NFC Teams</h2>
+        <ul>
+          <% categorizedTeams.NFC.forEach(team => { %>
+          <li>
+            <a class="blue-link" href="/teams/<%= team._id %>">
+              <strong><%= team.team %></strong></a
+            >
+            - <i><%= team.division %> Division</i>
+          </li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  </body>
 </html>

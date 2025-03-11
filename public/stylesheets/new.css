@@ -59,13 +59,13 @@ legend {
   font-size: 25px;
 }
 
-button{
-    padding: 10px;
-    border-radius: 20px;
+button {
+  padding: 10px;
+  border-radius: 20px;
 }
 
-button:hover{
-    cursor: pointer;
+button:hover {
+  cursor: pointer;
 }
 
 nav ul {

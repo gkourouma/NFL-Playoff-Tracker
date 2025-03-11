@@ -1,0 +1,136 @@
+/* Index page css */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@300;400;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url(/images/football-ball-rugby-field.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: "Oswald", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+h1 {
+  font-family: "Anton", sans-serif;
+  text-transform: uppercase;
+  color: #0053a0;
+  font-size: 50px;
+  font-weight: 400;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  height: auto;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  max-width: 100%;
+  height: fit-content;
+}
+
+.afc {
+  padding: 20px;
+  border-radius: 10px;
+  color: black;
+  line-height: 50px;
+  width: 90%;
+  height: auto;
+  background-color: rgba(211, 211, 211, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.nfc {
+  padding: 20px;
+  border-radius: 10px;
+  line-height: 50px;
+  width: 90%;
+  height: auto;
+  background-color: rgba(211, 211, 211, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.afc-title {
+  color: #c60c30;
+}
+
+.nfc-title {
+  color: #0053a0;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+}
+
+nav ul {
+  padding-top: 20px;
+  list-style-type: none;
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #c60c30;
+  font-size: 23px;
+  transition: font-size 0.3s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #0053a0;
+  font-size: 25px;
+}
+
+.blue-link {
+  font-size: 20px;
+  color: #0053a0;
+  transition: font-size 0.3s ease;
+}
+
+.blue-link:hover {
+  font-size: 22px;
+}
+
+.red-link {
+  font-size: 20px;
+  color: #c60c30;
+  transition: font-size 0.3s ease;
+}
+
+.red-link:hover {
+  font-size: 22px;
+  color: #c60c30;
+}

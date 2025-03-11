@@ -3,12 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/edit.css" />
     <title>NFL Teams</title>
   </head>
   <body>
     <h1><%= team.team %></h1>
-    <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
-      <fieldset aria-labelledby="team-legend">
+
+    <div class="form-container">
+      <form action="/teams/<%= team._id %>?_method=PUT" method="POST">
         <legend id="team-legend">Update Your NFL Team Information</legend>
         <div>
           <label for="team">Team:</label>
@@ -17,31 +19,41 @@
 
         <div>
           <label for="conference">What conference is your team in?</label>
-          <input type="text" name="conference" value="<%= team.conference %>" />
+          <select name="conference" id="conference" required autofocus>
+            <option value="" disabled selected>Choose Your Conference</option>
+            <option value="AFC">AFC</option>
+            <option value="NFC">NFC</option>
+          </select>
         </div>
 
         <div>
           <label for="division">What Division is your team in?</label>
-          <input type="text" name="division" value="<%= team.division %>" />
+          <select name="division" id="division" required autofocus>
+            <option value="" disabled selected>Choose Your Division</option>
+            <option value="North">North</option>
+            <option value="East">East</option>
+            <option value="South">South</option>
+            <option value="West">West</option>
+          </select>
+        </div>
+        <div>
+          <label for="isPlayoffContender">
+            Check if your team made the 2025 Playoffs?</label
+          >
+          <input type="checkbox" name="isPlayoffContender" />
+          <% if(team.isPlayoffContender){ %> checked <% } %>
+        </div>
+        <div>
+          <button type="submit">Update Team</button>
         </div>
 
-        <div>
-          <label for="isPlayoffContender"> Check if your team made the 2025 Playoffs?</label>
-          <input
-            type="checkbox"
-            name="isPlayoffContender"
-            <%
-            if(team.isPlayoffContender){
-            %>
-          checked 
-          <% } %> />
-        </div>
-      </fieldset>
-      <div>
-        <button type="submit">Update Team</button>
-      </div>
-    </form>
-    <a href="/teams/">Back to NFL Teams</a>
-    <a href="/">Back to Home Page</a>
+        <nav>
+          <ul>
+            <li><a href="/teams/">Back to NFL Teams</a></li>
+            <li><a href="/">Back to Home Page</a></li>
+          </ul>
+        </nav>
+      </form>
+    </div>
   </body>
 </html>

@@ -1,26 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/show.css" />
     <title><%= team.team %></title>
-</head>
-<body>
-    <nav>
+  </head>
+  <body class="team-page">
+    <div class="container">
+      <nav>
         <ul>
-            <li>
-                <a href="/teams/">Back to NFL Teams</a>
-            </li>
-            <li>
-                <a href="/">Back to Home Page</a>
-            </li>
+          <li>
+            <a href="/teams/">Back to NFL Teams</a>
+          </li>
+          <li>
+            <a href="/">Back to Home Page</a>
+          </li>
         </ul>
-    </nav>
-    <h1><%= team.team %></h1>
-    <% if (team.isPlayoffContender){ %>
-    <p>The <%= team.team %> made it to the playoffs this year!</p>
-    <% }else{ %>
-    <p>The <%= team.team %> did not make it to the playoffs this year.</p>
-    <% } %>
-</body>
+      </nav>
+      <h1><%= team.team %></h1>
+      <% if (team.isPlayoffContender){ %>
+      <p>The <%= team.team %> made it to the playoffs this year!</p>
+      <% }else{ %>
+      <p>The <%= team.team %> did not make it to the playoffs this year.</p>
+      <% } %>
+
+      <div class="buttons">
+        <form
+          action="/teams/<%= team._id %>?_method=DELETE"
+          method="POST"
+          onsubmit="return confirmDelete()">
+          <button class="delete">Delete <%= team.team %></button>
+        </form>
+
+        <script>
+          function confirmDelete() {
+            return confirm("Are you sure you want to DELETE this team?");
+          }
+        </script>
+
+        <a href="/teams/<%= team._id %>/edit">Edit <%= team.team %></a>
+      </div>
+    </div>
+  </body>
 </html>

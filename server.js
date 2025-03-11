@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const Nfl = require("./models/nfl.js");
 const methodOverride = require("method-override");
 const morgan = require("morgan");
+const path = require("path");
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,8 @@ mongoose.connection.on("connected", () => {
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
 app.use(morgan("dev"));
+app.use(express.static(path.join(__dirname,"public")));
+
 
 //Build Route... This leads to Home Page
 app.get("/", async (req, res) => {
@@ -36,6 +39,7 @@ app.post("/teams", async (req, res) => {
   } else {
     req.body.isPlayoffContender = false;
   }
+  
   //Create the data in our database
   await Nfl.create(req.body);
   console.log(req.body);
@@ -82,7 +86,7 @@ app.put("/teams/:teamId", async (req, res) => {
   } else {
     req.body.isPlayoffContender = false;
   }
-//updates the fruit in the database
+//updates the team in the database
   await Nfl.findByIdAndUpdate(req.params.teamId, req.body);
 // Redirect users to Teams page and shows updates
   res.redirect(`/teams/${req.params.teamId}`);
