@@ -2,7 +2,7 @@
 
 The **NFL Playoff Tracker** is a full-stack CRUD application that allows users to track whether their favorite NFL teams made it to the playoffs. Users can create, view, edit, and delete team entries, specifying their conference, division, and playoff status.
 
-## 🌐 Live Demo
+## Live Demo
 
 Check out the live app here: [NFL Playoff Tracker on Render](https://nfl-playoff-tracker.onrender.com/)
 
